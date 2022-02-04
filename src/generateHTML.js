@@ -81,6 +81,27 @@ const generateHTMLPage = (cards) => {
     </html>`;
 }
 
-const generateTeamPage = () => {
-    
+const generateTeamPage = (data) => {
+    const cardArray = [];
+
+    for (let i=0; i < data.length; i++) {
+        const role = getRole();
+        const currentEmployee = data[i];
+        if (role === "Manager") {
+            const manager = generateManager(currentEmployee);
+            cardArray.push(manager);
+        } else if (role === "Intern") {
+            const intern = generateIntern(currentEmployee);
+            cardArray.push(intern);
+        } else if (role === "Engineer") {
+            const engineer = generateEngineer(currentEmployee);
+            cardArray.push(engineer);
+        }
+    }
+
+    const cards = pageArray.join("");
+
+    return generateHTMLPage(cards);
 }
+
+module.exports = generateTeamPage;
