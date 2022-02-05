@@ -13,41 +13,34 @@ const writeToFile = (data) => {
     });
 }
 
-const managerQuestions = () => {
-    inquirer
-        .prompt([
-            {
-                type: ,
-                name: ,
-                message: ,
-            },
-            {
-                type: ,
-                name: ,
-                message: ,
-            },
-        ])
-        .then((data) => {
-
-        })
-}
-
 const engineerQuestions = () => {
     inquirer
         .prompt([
             {
-                type: ,
-                name: ,
-                message: ,
+                type: "input",
+                name: "name",
+                message: "What is the engineers name?",
             },
             {
-                type: ,
-                name: ,
-                message: ,
+                type: "input",
+                name: "id",
+                message: "What is the engineers employee ID?",
             },
+            {
+                type: "input",
+                name: "email",
+                message: "What is the engineers email?",
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "What is the engineers GitHub username",
+            }
         ])
-        .then((data) => {
-
+        .then((engineerData) => {
+            const { name, id, email, gitHub } = engineerData;
+            const engineer = new Engineer (name, id, email, gitHub);
+            cardArray.push(engineer);
         })
 }
 
@@ -55,18 +48,61 @@ const internQuestions = () => {
     inquirer
         .prompt([
             {
-                type: ,
-                name: ,
-                message: ,
+                type: "input",
+                name: "name",
+                message: "What is the interns name?",
             },
             {
-                type: ,
-                name: ,
-                message: ,
+                type: "input",
+                name: "id",
+                message: "What is the interns employee ID",
             },
+            {
+                type: "input",
+                name: "email",
+                message: "What is the interns email?",
+            },
+            {
+                type: "input",
+                name: "school",
+                message: "What is the interns school?",
+            }
         ])
-        .then((data) => {
+        .then((internData) => {
+            const { name, id, email, school } = internData;
+            const intern = new Intern (name, id, email, school);
+            cardArray.push(intern);
+        })
+}
 
+const managerQuestions = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the managers name?",
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "What is the managers employee ID?",
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "What is the managers email?",
+            },
+            {
+                type: "input",
+                name: "office",
+                message: "What is the managers office number?",
+            }
+        ])
+        .then((managerData) => {
+            const { name, id, email, officeNumber } = managerData;
+            const manager = new Manager (name, id, email, officeNumber);
+            cardArray.push(manager);
         })
 }
 
