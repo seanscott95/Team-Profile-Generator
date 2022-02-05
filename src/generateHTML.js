@@ -29,7 +29,7 @@ const generateEngineer = (engineer) => {
                         <p class="p-2 m-1 bg-white border">ID: ${engineer.id}</p>
                         <p class="p-2 m-1 bg-white border">Email: <a
                                 href="mailto:${engineer.email}">${engineer.email}</a></p>
-                        <p class="p-2 m-1 bg-white border">GitHub: ${engineer.github}</p>
+                        <p class="p-2 m-1 bg-white border">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
                     </section>
                 </div>
             </article>`;
