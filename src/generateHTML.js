@@ -1,3 +1,4 @@
+// Generates a manager card using html and bootstrap
 const generateManager = (manager) => {
     return `<article class="col-4 mt-3">
                     <div class="card">
@@ -16,6 +17,7 @@ const generateManager = (manager) => {
                 </article>`;
 }
 
+// Generates an engineer card using html and bootstrap
 const generateEngineer = (engineer) => {
     return `<article class="col-4 mt-3">
                 <div class="card">
@@ -33,6 +35,7 @@ const generateEngineer = (engineer) => {
             </article>`;
 }
 
+// Generates an intern card using html and bootstrap
 const generateIntern = (intern) => {
     return `<article class="col-4 mt-3">
     <div class="card">
@@ -51,6 +54,7 @@ const generateIntern = (intern) => {
 </article>`;
 }
 
+// Generates the rest of the html page needed
 const generateHTMLPage = (cards) => {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -81,12 +85,15 @@ const generateHTMLPage = (cards) => {
     </html>`;
 }
 
+// Generates the actual html page that will be created
 const generateTeamPage = (data) => {
+    // To push all the teams profile cards into an array to be added to the generateHTMLPage functions
     const cardArray = [];
 
     for (let i=0; i < data.length; i++) {
         const role = getRole();
         const currentEmployee = data[i];
+        // If the role is a manager it calls the generateManager function 
         if (role === "Manager") {
             const manager = generateManager(currentEmployee);
             cardArray.push(manager);
@@ -98,8 +105,8 @@ const generateTeamPage = (data) => {
             cardArray.push(engineer);
         }
     }
-
-    const cards = pageArray.join("");
+    // Creating a new string of the array elements
+    const cards = cardArray.join("");
 
     return generateHTMLPage(cards);
 }
