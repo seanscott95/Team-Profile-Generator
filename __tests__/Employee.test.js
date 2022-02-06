@@ -13,14 +13,15 @@ describe("Employee", () => {
             let returnName = newEmployee.getName();
             expect(returnName).toEqual("james");
         });
-        // it("should return the id in getId()", () => {
-            
-        // });
-        // it("should return the email in getEmail()", () => {
-            
-        // });
-        // it("should return the role in getRole()", () => {
-            
-        // });
+        it("should return the id in getId()", () => {
+            let newEmployee = new Employee("james", 1, "fake@fakemail.com");
+            let returnId = newEmployee.getId();
+            expect(returnId).toEqual(1);
+        });
+        it("should return the email in getEmail()", () => {
+            let newEmployee = new Employee("james", 1, "fake@fakemail.com");
+            let returnEmail = newEmployee.getEmail();
+            expect(returnEmail).toEqual("fake@fakemail.com");
+        });
     });
 })
