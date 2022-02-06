@@ -6,4 +6,9 @@ describe("Engineer", () => {
         let gitHubUsername = newEngineer.github;
         expect(gitHubUsername).toEqual("james418");
     });
+    it(("should return github username in getGithub()"), () => {
+        let newEngineer = new Engineer("james", 1, "fake@fakemail.com", "james418");
+        let getGitHub = newEngineer.getGithub();
+        expect(getGitHub).toEqual("james418");
+    })
 })
