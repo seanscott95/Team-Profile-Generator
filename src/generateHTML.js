@@ -91,8 +91,8 @@ const generateTeamPage = (data) => {
     const cardArray = [];
 
     for (let i=0; i < data.length; i++) {
-        const role = getRole();
         const currentEmployee = data[i];
+        const role = currentEmployee.getRole();
         // If the role is a manager it calls the generateManager function 
         if (role === "Manager") {
             const manager = generateManager(currentEmployee);

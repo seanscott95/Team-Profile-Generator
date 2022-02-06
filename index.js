@@ -14,7 +14,7 @@ const writeToFile = (data) => {
 }
 
 const engineerQuestions = () => {
-    inquirer
+    return inquirer
         .prompt([
             {
                 type: "input",
@@ -40,13 +40,13 @@ const engineerQuestions = () => {
         .then((engineerData) => {
             const { name, id, email, gitHub } = engineerData;
             const engineer = new Engineer(name, id, email, gitHub);
-            cardArray.push(engineer);
-            init;
+            return cardArray.push(engineer);
         })
+        .then(init)
 }
 
 const internQuestions = () => {
-    inquirer
+    return inquirer
         .prompt([
             {
                 type: "input",
@@ -72,13 +72,13 @@ const internQuestions = () => {
         .then((internData) => {
             const { name, id, email, school } = internData;
             const intern = new Intern(name, id, email, school);
-            cardArray.push(intern);
-            init;
+            return cardArray.push(intern);
         })
+        .then(init)
 }
 
 const managerQuestions = () => {
-    inquirer
+    return inquirer
         .prompt([
             {
                 type: "input",
@@ -104,12 +104,12 @@ const managerQuestions = () => {
         .then((managerData) => {
             const { name, id, email, officeNumber } = managerData;
             const manager = new Manager(name, id, email, officeNumber);
-            cardArray.push(manager);
+            return cardArray.push(manager);
         })
 }
 
 const init = () => {
-    inquirer
+    return inquirer
         .prompt([
             {
                 type: "list",
@@ -124,7 +124,7 @@ const init = () => {
                 return engineerQuestions;
             } else if (role === "Intern") {
                 return internQuestions;
-            } else if ("Finish") {
+            } else if (role === "Finish") {
                 return cardArray;
             }
         });
@@ -135,9 +135,3 @@ managerQuestions()
     .then(cardArray => generateHTMLPage(cardArray))
     .then(HTMLPage => writeToFile(HTMLPage))
     .catch(err => console.log(err));
-
-// Enter the team manager’s name, employee ID, email address, and office number
-// After that have a menu with the option to add an engineer or an intern or to finish building my team
-// Engineer - Enter the engineer’s name, ID, email, and GitHub username then take back to the menu
-// Intern - Enter the intern’s name, ID, email, and school then take back to the menu
-// Finish building team - exit application and generate HTML
