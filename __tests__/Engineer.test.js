@@ -10,5 +10,10 @@ describe("Engineer", () => {
         let newEngineer = new Engineer("james", 1, "fake@fakemail.com", "james418");
         let getGitHub = newEngineer.getGithub();
         expect(getGitHub).toEqual("james418");
-    })
+    });
+    it(("should return role in getRole()"), () => {
+        let newEngineer = new Engineer("james", 1, "fake@fakemail.com", "james418");
+        let role = newEngineer.getRole();
+        expect(role).toEqual("Engineer");
+    });
 })
