@@ -39,8 +39,9 @@ const engineerQuestions = () => {
         ])
         .then((engineerData) => {
             const { name, id, email, gitHub } = engineerData;
-            const engineer = new Engineer (name, id, email, gitHub);
+            const engineer = new Engineer(name, id, email, gitHub);
             cardArray.push(engineer);
+            init;
         })
 }
 
@@ -70,8 +71,9 @@ const internQuestions = () => {
         ])
         .then((internData) => {
             const { name, id, email, school } = internData;
-            const intern = new Intern (name, id, email, school);
+            const intern = new Intern(name, id, email, school);
             cardArray.push(intern);
+            init;
         })
 }
 
@@ -101,11 +103,38 @@ const managerQuestions = () => {
         ])
         .then((managerData) => {
             const { name, id, email, officeNumber } = managerData;
-            const manager = new Manager (name, id, email, officeNumber);
+            const manager = new Manager(name, id, email, officeNumber);
             cardArray.push(manager);
         })
 }
 
+const init = () => {
+    inquirer
+        .prompt([
+            {
+                type: "list",
+                name: "role",
+                message: "Do you want to add an employee or finish?",
+                choices: ["Engineer", "Intern", "Finish"]
+            }
+        ])
+        .then((data) => {
+            const role = data.role;
+            if (role === "Engineer") {
+                return engineerQuestions;
+            } else if (role === "Intern") {
+                return internQuestions;
+            } else if ("Finish") {
+                return cardArray;
+            }
+        });
+}
+
+managerQuestions()
+    .then(init)
+    .then(cardArray => generateHTMLPage(cardArray))
+    .then(HTMLPage => writeToFile(HTMLPage))
+    .catch(err => console.log(err));
 
 // Enter the team manager’s name, employee ID, email address, and office number
 // After that have a menu with the option to add an engineer or an intern or to finish building my team
