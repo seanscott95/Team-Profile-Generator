@@ -121,9 +121,9 @@ const init = () => {
         .then((data) => {
             const role = data.role;
             if (role === "Engineer") {
-                return engineerQuestions;
+                return engineerQuestions();
             } else if (role === "Intern") {
-                return internQuestions;
+                return internQuestions();
             } else if (role === "Finish") {
                 return cardArray;
             }
