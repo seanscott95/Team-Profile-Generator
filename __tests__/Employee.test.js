@@ -23,5 +23,10 @@ describe("Employee", () => {
             let returnEmail = newEmployee.getEmail();
             expect(returnEmail).toEqual("fake@fakemail.com");
         });
+        it("should return the role in getRole()", () => {
+            let newEmployee = new Employee("james", 1, "fake@fakemail.com");
+            let returnRole = newEmployee.getRole();
+            expect(returnRole).toEqual("Employee");
+        });
     });
 })
