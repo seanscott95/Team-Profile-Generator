@@ -73,8 +73,8 @@ const engineerQuestions = () => {
             }
         ])
         .then((engineerData) => {
-            const { name, id, email, gitHub } = engineerData;
-            const engineer = new Engineer(name, id, email, gitHub);
+            const { name, id, email, github } = engineerData;
+            const engineer = new Engineer(name, id, email, github);
             return cardArray.push(engineer);
         })
         .then(init)
@@ -203,8 +203,8 @@ const managerQuestions = () => {
             }
         ])
         .then((managerData) => {
-            const { name, id, email, officeNumber } = managerData;
-            const manager = new Manager(name, id, email, officeNumber);
+            const { name, id, email, office } = managerData;
+            const manager = new Manager(name, id, email, office);
             return cardArray.push(manager);
         })
 }
