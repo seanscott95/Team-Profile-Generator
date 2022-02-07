@@ -32,4 +32,4 @@
 
 - Link: [GitHub](https://github.com/seanscott95/Team-Profile-Generator)
 - Link: [Email](mailto:seanms418@gmail.com)
-- Link: [Video-Demo]()
+- Link: [Video-Demo](https://drive.google.com/file/d/1yNBxCo7Cfa1ZD1T4x9U5-uVDR7NTmkKL/view)
